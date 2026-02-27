@@ -1,0 +1,65 @@
+.marquee-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 22vh;
+}
+
+/* Blur Mask Left / Right */
+.blur-left,
+.blur-right {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 7px;
+}
+
+.blur-left {
+  left: 0;
+  background: linear-gradient(to right, #000814, rgba(255,255,255,0));
+}
+
+.blur-right {
+  right: 0;
+  background: linear-gradient(to left, #000814, rgba(255,255,255,0));
+}
+
+/* Row of logos */
+.marquee {
+  display: flex;
+  gap: 60px;
+  animation: scroll 25s linear infinite;
+}
+
+/* LOGO STYLE */
+.marquee-item img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* Smooth loop (no shaking) */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .marquee-item img {
+    height: 32px;
+  }
+  .blur-left,
+  .blur-right {
+    width: 80px;
+  }
+}
